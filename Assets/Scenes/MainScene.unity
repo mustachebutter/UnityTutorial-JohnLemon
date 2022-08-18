@@ -4370,7 +4370,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemData
       value: 
-      objectReference: {fileID: 11400000, guid: 17afdfb8cf2e11f4bba12160c2d286b3,
+      objectReference: {fileID: 11400000, guid: a4e9a5f54fc2f234caefefd931f5a33e,
         type: 2}
     - target: {fileID: 8761918851573206625, guid: a0be9fc199c3942478c04d12cd633dea,
         type: 3}
@@ -5647,7 +5647,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemData
       value: 
-      objectReference: {fileID: 11400000, guid: 8800d398e71e0b640b6db899574a76f8,
+      objectReference: {fileID: 11400000, guid: 067cca97549a2ad40aa814df9ee93a11,
         type: 2}
     - target: {fileID: 8761918851573206625, guid: a0be9fc199c3942478c04d12cd633dea,
         type: 3}
@@ -6001,6 +6001,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2382944173960393795, guid: 67cdcf032d490434fbdab558ad08ec8a,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4870572617779827799, guid: 67cdcf032d490434fbdab558ad08ec8a,
         type: 3}
       propertyPath: m_RootOrder
@@ -6060,6 +6065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JohnLemon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677439121665685024, guid: 67cdcf032d490434fbdab558ad08ec8a,
+        type: 3}
+      propertyPath: speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67cdcf032d490434fbdab558ad08ec8a, type: 3}
@@ -6141,7 +6151,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemData
       value: 
-      objectReference: {fileID: 11400000, guid: 79684b1f804f7fb46b7b824111f0a242,
+      objectReference: {fileID: 11400000, guid: c9697f2bb83de4547a3715b0ada337ea,
         type: 2}
     - target: {fileID: 8761918851573206625, guid: a0be9fc199c3942478c04d12cd633dea,
         type: 3}

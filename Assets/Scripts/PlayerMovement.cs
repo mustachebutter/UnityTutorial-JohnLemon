@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float moveSpeed = 1.0f;
     [SerializeField] private float turnSpeed = 20.0f;
     private Vector3 _movement;
     private Quaternion _rotation = Quaternion.identity;
     private Animator _animator;
     private Rigidbody _rigidBody;
     private AudioSource _audioSource;
+    private PlayerStats _playerStats;
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
+        _playerStats = GetComponent<PlayerStats>();
+        moveSpeed = _playerStats.Speed;
+        _playerStats.OnSpeedChange += (float newSpeed) => { moveSpeed = newSpeed; };
     }
 
     // Update is called once per frame
@@ -25,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         _movement.Set(horizontal, 0.0f, vertical);
-        _movement.Normalize(); //Normalizing means keeping the vector direction but reduce the magnitude to 1
+        //_movement.Normalize(); //Normalizing means keeping the vector direction but reduce the magnitude to 1
 
         bool isWalking = !Mathf.Approximately(horizontal, 0.0f) || !Mathf.Approximately(vertical, 0.0f);
         _animator.SetBool("isWalking", isWalking);
@@ -42,10 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, _movement, turnSpeed * Time.deltaTime, 0.0f);
         _rotation = Quaternion.LookRotation(desiredForward);
+        Debug.Log(moveSpeed);
     }
 
     private void OnAnimatorMove() {
-        _rigidBody.MovePosition(_rigidBody.position + _movement * _animator.deltaPosition.magnitude);
+        _rigidBody.MovePosition(_rigidBody.position + (_movement * moveSpeed) * _animator.deltaPosition.magnitude);
         _rigidBody.MoveRotation(_rotation);
     }
 }
